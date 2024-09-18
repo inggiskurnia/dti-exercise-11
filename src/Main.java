@@ -52,24 +52,28 @@ public class Main {
             // binary search
             case 3 : {
                 // create new array
-//                ArrayList<Integer> arr = new ArrayList<>();
-//                while(true){
-//                    System.out.println("Input number, press q to stop");
-//                    char inputtedVal = scanner.next().charAt(0);
-//
-//                    if (Character.toLowerCase(inputtedVal) == 'q'){
-//                        break;
-//                    }
-//                    arr.add(Character.getNumericValue(inputtedVal));
-//                }
-//                System.out.println("Your array is : " + arr);
-//
-//                // convert to int[]
-//                int[] array = new int[arr.size()];
-//                for(int i=0; i<array.length; i++){
-//                    array[i] = arr.get(i);
-//                }
-                int[] array = {1,3,2,6,9,10};
+                ArrayList<Integer> arr = new ArrayList<>();
+                while(true){
+                    System.out.println("Input number, press q to stop");
+                    char inputtedVal = scanner.next().charAt(0);
+
+                    if (Character.toLowerCase(inputtedVal) == 'q'){
+                        break;
+                    }
+                    arr.add(Character.getNumericValue(inputtedVal));
+                }
+                scanner.nextLine();
+                System.out.println("Your array is : " + arr);
+
+                // remove duplicates
+                ArrayList removeDuplicates = RemoveDuplicate.run(arr);
+                System.out.println("Removed duplicates in array : " + removeDuplicates);
+
+                // convert to int[]
+                int[] array = new int[removeDuplicates.size()];
+                for(int i=0; i<array.length; i++){
+                    array[i] = (int) removeDuplicates.get(i);
+                }
 
                 // sort array
                 Arrays.sort(array);
